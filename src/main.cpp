@@ -1245,6 +1245,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
+// 5,750,000 coins at 300,000 blocks
 static const int64 nStartSubsidy = 23 * COIN;
 static const int64 nMinSubsidy = 11.5 * COIN;
 
@@ -1252,12 +1253,32 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = nStartSubsidy;
 
-    //giveaway etc
+//giveaway etc
     if(nHeight > 9 && nHeight < 11){
         nSubsidy = 69000 * COIN;
-   
-    
-    return nSubsidy + nFees;
+
+}
+else if(nHeight > 300000 && nHeight < 400000){
+nSubsidy = 5 * COIN;
+
+}
+else if(nHeight > 400000 && nHeight < 500000){
+nSubsidy = 3 * COIN;
+
+}
+else if(nHeight > 500000 && nHeight < 510000){
+nSubsidy = 23 * COIN;
+
+}
+else if(nHeight > 510000 && nHeight < 630000){
+nSubsidy = 1 * COIN;
+
+}
+else if(nHeight > 630000 && nHeight < 900000){
+nSubsidy = 0.0001 * COIN;
+
+
+ return nSubsidy + nFees;
 }
 
     // Mining phase: Subsidy is cut in half every SubsidyHalvingInterval
