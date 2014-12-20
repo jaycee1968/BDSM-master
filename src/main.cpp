@@ -1263,7 +1263,7 @@ nSubsidy = 5 * COIN;
 
 }
 else if(nHeight > 400000 && nHeight < 500000){
-nSubsidy = 3 * COIN;
+nSubsidy = 2.5 * COIN;
 
 }
 else if(nHeight > 500000 && nHeight < 510000){
